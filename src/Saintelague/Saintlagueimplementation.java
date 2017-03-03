@@ -12,16 +12,55 @@ import java.util.Scanner;
 
 public class Saintlagueimplementation {
 	
-private ArrayList<Party> partyList = new ArrayList<Party>();
+private ArrayList<SainteParty> partyList = new ArrayList<SainteParty>();
 private int seats = 63;
 
-public void addParty(Party party) {
+public void addParty(SainteParty party) {
 	partyList.add(party);
 }
 
 public static void main(String[] args) throws IOException{
 	Saintlagueimplementation saint = new Saintlagueimplementation();
-	saint.LoadVotingData("TestingData.txt");
+	BufferedReader breader = new BufferedReader(new InputStreamReader(System.in));
+	System.out.println("Welcome to the Saint Lague System!");
+	System.out.println("There are four different elections that can be run on this system.");
+	System.out.println("The data for these elections can be found in the following text files in the program.");
+	System.out.println();
+	System.out.println("SaintElection1.txt");
+	System.out.println("SaintElection2.txt");
+	System.out.println("SaintElection3.txt");
+	System.out.println("SaintElection4.txt");
+	System.out.println();
+	System.out.println("To load any of these elections type(without the quotes) 'load1', 'load2', 'load3' or 'load4'.");
+	System.out.println("The results are displayed as: Party Name, The number of votes achieved and the allocated seats to the party.");
+	System.out.println("Note these text files will be able to be edited to host your own elections.");
+	System.out.println("Read the user manual on how to edit and interpret the data for this system if you don't understand.");
+	System.out.println("If you wish to exit the system, type(without the quotes) 'exit'.");
+	while(true) {
+		String command = "";
+		
+		command = breader.readLine();
+		
+		if(command.equals("finished")){
+			break;
+		}
+		if(command.equals("Load1")){
+			saint.LoadVotingData("testingData.txt");
+			break;
+		}
+		if(command.equals("Load2")){
+			saint.LoadVotingData("testingData.txt");
+			break;
+		}
+		if(command.equals("Load3")){
+			saint.LoadVotingData("testingData.txt");
+			break;
+		}
+		if(command.equals("Load4")){
+			saint.LoadVotingData("testingData.txt");
+			break;
+		}
+	}
 	saint.delegateSeats();
 	saint.printAllParties();
 	}
@@ -31,9 +70,9 @@ public static void main(String[] args) throws IOException{
 
 
 private void delegateSeats() {
-	Party party = partyList.get(0);
+	SainteParty party = partyList.get(0);
 	while(seats > 0) {
-		for(Party nextParty: partyList) {
+		for(SainteParty nextParty: partyList) {
 			if(nextParty.Quotient() > party.Quotient()) {
 				party = nextParty; 
 			}
@@ -60,7 +99,7 @@ public void LoadVotingData(String file) {
 			Scanner scanLine = new Scanner(line);
 			String partyName = scanLine.next();
 			int votes = scanLine.nextInt();
-			Party newParty = new Party(partyName, votes);
+			SainteParty newParty = new SainteParty(partyName, votes);
 			this.addParty(newParty);
 			}
 		} catch (FileNotFoundException ex) {
@@ -68,7 +107,7 @@ public void LoadVotingData(String file) {
 	} 
 	}
 public void printAllParties() {
-	 for(Party party: partyList) {
+	 for(SainteParty party: partyList) {
 		 System.out.println(party.printPartyData());
 	 }
 }

@@ -1,12 +1,12 @@
-package Dhondt;
+package Saintelague;
 
-public class Party {
+public class SainteParty {
 
 private String partyName;
 private int totalVotes;
 private int totalSeats;
 
-public Party(String name, int votes) {
+public SainteParty(String name, int votes) {
 	totalVotes = votes;
 	partyName = name;
 	
@@ -21,7 +21,9 @@ public Double Quotient() {
 	return (double) (totalVotes /(2 * totalSeats + 1));
 }
 
-
+public Double modifiedQuotient() {
+	return (double) (totalVotes / 1.4);
+}
 
 public String partyName() {
 	return partyName;
@@ -40,4 +42,3 @@ public String printPartyData() {
 }
 
 }
-

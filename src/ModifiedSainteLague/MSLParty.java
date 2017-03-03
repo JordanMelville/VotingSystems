@@ -1,12 +1,12 @@
 package ModifiedSainteLague;
 
-public class Party {
+public class MSLParty {
 
 private String partyName;
 private int totalVotes;
 private int totalSeats;
 
-public Party(String name, int votes) {
+public MSLParty(String name, int votes) {
 	totalVotes = votes;
 	partyName = name;
 	

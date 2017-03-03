@@ -4,35 +4,43 @@ import java.util.Scanner;
 
 import Borda.BordaCandidate;
 import Borda.BordaImplementation;
-
-import Dhondt.*;
-import FirstPastThePost.Candidate;
+import AlternativeVote.InstantRunoffProc;
+import Dhondt.Dhondtimplementation;
+import Dhondt.DhondtParty;
+import FirstPastThePost.FPTPCandidate;
 import FirstPastThePost.FPTPImplementation;
 import ModifiedSainteLague.MSLImplementation;
-import ModifiedSainteLague.Party;
-import Saintelague.*;
+import ModifiedSainteLague.MSLParty;
+import Saintelague.Saintlagueimplementation;
+import Saintelague.SainteParty;
 public class FinalProgramMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		boolean ended = false;	
-		
+	 System.out.println();	
      System.out.println("Thank you for using the voting systems analyser!");
      System.out.println("This system allows you to run a selection of voting methods using pre-given election data!");
      System.out.println("The system also allows you to change voting files to select your own data!");
-     System.out.println(); 
+     System.out.println("Once you have recieved your election results the menu will be displayed again");
+     System.out.println("If you wish to use the same system again, just re-enter the same command!");
+     System.out.println();
+     while(ended != true) {
      System.out.println("The six systems available in this program are as follows.");
      System.out.println("1 Borda Count Method");
      System.out.println("2 Sainte-lague Method");
      System.out.println("3 D'hondt Method");
      System.out.println("4 First Past The Post Method");
      System.out.println("5 Modified Sainte Lague Method");
-     System.out.println("6 Single Tranferable Vote Method");
+     System.out.println("6 Alternative Vote Method");
      System.out.println();
      System.out.println("If you are unsure about any of these voting styles or would like to know more.");
      System.out.println("If you are unfamiliar with any of these systems, type 'Help' and information will be provided.");
      System.out.println("Otherwise type the number next to the system to enter a voting method.");
      System.out.println("If you wish to exit the program, just type 'exit'.");
+     System.out.println("There are voting files attached to this program that you can edit to make your own elections.");
+     System.out.println("Note to edit Borda votes use the VoteReader class.");
+     System.out.println("Note that Alternative Vote system does not use a text file, you type the ballots manually.");
      
      
      Scanner input = new Scanner(System.in);
@@ -72,6 +80,46 @@ public class FinalProgramMain {
   		System.out.println("The party who has the most MPS will form a government but to achieve a majority is a difficult task.");
   		System.out.println("In the event of a non-majority win, parties may have to band together to form a coalition.");
   		System.out.println("If you wish to know more information about this, this link below provides more information and an example");
+     }
+     else if(userInput.equals("sainte")) {
+    	 ended = true; 
+    	 try {
+			Saintlagueimplementation.main(args);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+     }
+     else if(userInput.equals("D'hondt")) {
+    	 ended = true;
+    	 try {
+			Dhondtimplementation.main(args);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+     }
+     else if(userInput.equals("First")) {
+    	 try {
+			FPTPImplementation.main(args);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	 ended = true; 
+     }
+     else if(userInput.equals("Modified")) {
+    	 try {
+			MSLImplementation.main(args);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	 ended = true;	 
+     }
+     else if(userInput.equals("Alternative")) {
+    	 InstantRunoffProc.main(args);
+    	 ended = true; 
      }
     /* switch(userInput) {
      	case "Borda":
@@ -133,7 +181,7 @@ public class FinalProgramMain {
      		
     	 
      } */
-     
+     }
      }
 	}
 

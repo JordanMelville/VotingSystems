@@ -11,17 +11,55 @@ import java.util.Scanner;
 
 public class Dhondtimplementation {
 	
-private ArrayList<Party> partyList = new ArrayList<Party>();
+private ArrayList<DhondtParty> partyList = new ArrayList<DhondtParty>();
 
 
-public void addParty(Party party) {
+public void addParty(DhondtParty party) {
 	partyList.add(party);
 }
 
 public static void main(String[] args) throws IOException{
 	Dhondtimplementation dhon = new Dhondtimplementation();
 	BufferedReader breader = new BufferedReader(new InputStreamReader(System.in));
-	dhon.LoadVotingData("testingData.txt");
+	System.out.println("Welcome to the D'hondt system!");
+	System.out.println("There are four different elections that can be run on this system.");
+	System.out.println("The data for these elections can be found in the following text files in the program.");
+	System.out.println();
+	System.out.println("D'hondtElection1.txt");
+	System.out.println("D'hondtElection2.txt");
+	System.out.println("D'hondtElection3.txt");
+	System.out.println("D'hondtElection4.txt");
+	System.out.println();
+	System.out.println("To load any of these elections type(without the quotes) 'load1', 'load2', 'load3' or 'load4'.");
+	System.out.println("The results are displayed as: Party Name, The number of votes achieved and the allocated seats to the party.");
+	System.out.println("Note these text files will be able to be edited to host your own elections.");
+	System.out.println("Read the user manual on how to edit and interpret the data for this system if you don't understand.");
+	System.out.println("If you wish to exit the system, type(without the quotes) 'exit'.");
+	while(true) {
+		String command = "";
+		
+		command = breader.readLine();
+		
+		if(command.equals("finished")){
+			break;
+		}
+		if(command.equals("Load1")){
+			dhon.LoadVotingData("testingData.txt");
+			break;
+		}
+		if(command.equals("Load2")){
+			dhon.LoadVotingData("testingData.txt");
+			break;
+		}
+		if(command.equals("Load3")){
+			dhon.LoadVotingData("testingData.txt");
+			break;
+		}
+		if(command.equals("Load4")){
+			dhon.LoadVotingData("testingData.txt");
+			break;
+		}
+	}
 	dhon.delegateSeats();
 	dhon.printAllParties();
 	}
@@ -30,8 +68,8 @@ public static void main(String[] args) throws IOException{
 public void delegateSeats() {
 	int seats = 63;
 	while (seats > 0) {
-		Party party = partyList.get(0);
-		for (Party nextParty : partyList) {
+		DhondtParty party = partyList.get(0);
+		for (DhondtParty nextParty : partyList) {
 			if (nextParty.Quotient() > party.Quotient()) {
 				party = nextParty;
 			}
@@ -58,7 +96,7 @@ public void LoadVotingData(String file) {
 			Scanner scanLine = new Scanner(line);
 			String partyName = scanLine.next();
 			int votes = scanLine.nextInt();
-			Party newParty = new Party(partyName, votes);
+			DhondtParty newParty = new DhondtParty(partyName, votes);
 			this.addParty(newParty);
 			}
 		} catch (FileNotFoundException ex) {
@@ -66,7 +104,7 @@ public void LoadVotingData(String file) {
 	} 
 	}
 public void printAllParties() {
-	 for(Party party: partyList) {
+	 for(DhondtParty party: partyList) {
 		 System.out.println(party.printPartyData());
 	 }
 }
