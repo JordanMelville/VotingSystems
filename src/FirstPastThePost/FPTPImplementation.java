@@ -33,6 +33,8 @@ public static void main(String[] args) throws IOException{
     System.out.println("To load the election results for any of these files type the following.");
     System.out.println("Either 'Load1', 'Load2', 'Load3', 'Load4'.");
     System.out.println("Type 'exit' if you wish to terminate the program.");
+    System.out.println("Once you have typed your load command the results are printed and then we are returned to the main menu.");
+    System.out.println("To see the results if they are printed off the screen, scroll up the console to see where you typed and the results with be below.");
 	
     while(true) {
 		String command = "";
@@ -62,9 +64,43 @@ public static void main(String[] args) throws IOException{
 			fptp.LoadVotingData("FPTPElection4.txt");
 			break;
 		}
+		if(command.equals("Help")) {
+			System.out.println();
+			System.out.println("The files that contain the data for these elections can be found underneath the class packages.");
+			System.out.println("You can edit these files but they must remain in the very same format.");
+			System.out.println("The data in these files are represented for example as the following sample election from election file 1.");
+			System.out.println();
+			System.out.println("Lisa 33678");
+			System.out.println("Michael 17151");
+			System.out.println("Graham 7129");
+			System.out.println("Robert 1221");
+			System.out.println("John 318");
+			System.out.println("This represents 33678 votes for Lisa, 17151 votes for Michael, 7129 votes for Graham, 1221 votes for Robert and 318 votes for John.");
+			System.out.println();
+			System.out.println("Once the result has been calculated in the system from these votes, it is displayed as follows: ");
+			System.out.println("Lisa's Votes: 33678");
+			System.out.println("Michael's Votes: 17151");
+			System.out.println("Graham's Votes: 7129");
+			System.out.println("Robert's Votes: 1221");
+			System.out.println("John's Votes: 318");
+			System.out.println();
+			System.out.println("The winner with the most votes is Lisa.");
+			System.out.println();
+			System.out.println("This represents the votes for each candidate in the constituency, and then the winner with the most votes out of each candidate.");
+			System.out.println();
+			System.out.println("You can edit these files given to you, but as stated they must be in the above format, not case sensitive for the name.");
+			System.out.println("Now that you have seen help please feel free to edit these files and use any of the 'Load1', 'Load2', 'Load3', 'Load4' commands to load the files");
+			System.out.println("Otherwise, please type 'Exit' to exit the program.");
+		}
+		if(!command.equals("Exit") | !command.equals("Load1") | !command.equals("Load2") | !command.equals("Load3") | !command.equals("Load4")  | !command.equals("Exit")) {
+			System.out.println();
+			System.out.println("The command you entered has not been recognized by the system.");
+			System.out.println("Please read the information below to get the correct commands.");
+			System.out.println();
+			System.out.println("Please type a correct command: ");
+		}
 	
     }
-	fptp.LoadVotingData("testingData.txt");
 	fptp.calculateWinnerVotes();
 	
 	}

@@ -164,13 +164,16 @@ public class InstantRunoffProc {
 	 */
 	public static void main(String[] args) {
 		List<List<String>> ballots = new ArrayList<List<String>>();
-		
+		System.out.println();
+		System.out.println("Welcome to the Alternative Vote System!");
 		System.out.println("Enter candidate names in order of preference,");
 		System.out.println("separated by spaces.  End with a blank line.");
 		System.out.println("For example, 'Joe, Tom, Bob, Ted, Ed' is taken as a ballot in order 1,2,3,4,5,");
-		System.out.println("Where 1 is a first preference, 2 is a second preference....etc");
+		System.out.println("Where 1 is a first preference, 2 is a second preference all the way up to 5 candidates");
 		System.out.println("Once you have entered all the ballots you require double tap enter");
-		System.out.println("The vote tallys will be displayed and the winner will be shown");
+		System.out.println("The vote tallys will be displayed and the winner will be shown and you will be returned to the main menu");
+		System.out.println("Scroll up the console to see where you typed and the results will be below.");
+		System.out.println();
 		List<String> ballot; 
 		Scanner in = new Scanner(System.in);
 		
@@ -189,12 +192,14 @@ public class InstantRunoffProc {
 			System.out.print("Enter a ballot: ");
 			line = in.nextLine();
 		}
-		
+		System.out.println();
 		String winner = runInstantRunoffElection(ballots);
 		if (winner != null)
 	    System.out.println("The winner of the Alternative Vote election is: " + 
 		    winner);
 		else
 			System.out.println("No valid votes cast");
+			System.out.println();
+		System.out.println();
 	}
 }

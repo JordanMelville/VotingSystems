@@ -21,11 +21,11 @@ public class BordaImplementation {
 		candidates.add(candidate4);
 		candidates.add(candidate5);
 		
-	    System.out.println(candidate1.getBordaScore());
-	    System.out.println(candidate2.getBordaScore());
-	    System.out.println(candidate3.getBordaScore());
-	    System.out.println(candidate4.getBordaScore());
-	    System.out.println(candidate5.getBordaScore());
+	    System.out.println(candidate1.getCandidateName() + " "  + candidate1.getBordaScore());
+	    System.out.println(candidate2.getCandidateName() + " " + candidate2.getBordaScore());
+	    System.out.println(candidate3.getCandidateName() + " " + candidate3.getBordaScore());
+	    System.out.println(candidate4.getCandidateName() + " " + candidate4.getBordaScore());
+	    System.out.println(candidate5.getCandidateName() + " " + candidate5.getBordaScore());
 	    
 	    
 	    int maxScore = Integer.MIN_VALUE;
@@ -36,7 +36,10 @@ public class BordaImplementation {
 	    		winningCandidate = candidate;
 	    	}
 	    }
+	    System.out.println();
 	    System.out.println("The winning candidate is " + winningCandidate.getCandidateName() + " with a Borda score of " + winningCandidate.getBordaScore());
+	    System.out.println("Returning back to the main menu.");
+	    System.out.println();
 	    
 		}
 
