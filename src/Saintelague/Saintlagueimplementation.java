@@ -107,7 +107,7 @@ public static void main(String[] args) throws IOException{
 
 
 private void delegateSeats() {
-	int seats = 63;
+	int seats = 100;
 	while(seats > 0) {
 		SainteParty party = partyList.get(0);
 		

@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class MSLImplementation {
 	
 private ArrayList<MSLParty> partyList = new ArrayList<MSLParty>();
-private int seats = 63;
+private int seats = 100;
 
 
 public void addParty(MSLParty party) {
@@ -115,14 +115,29 @@ private void delegateSeats() {
 	while(seats > 0) {
 		
 		for(MSLParty nextParty: partyList) {
-			if(nextParty.totalSeats() == 0 && party.totalSeats() == 0) {
-				if(nextParty.modifiedQuotient() > party.modifiedQuotient()) {
+			if(party.totalSeats() == 0) {
+				if(nextParty.Quotient() > party.modifiedQuotient()) {
 					party = nextParty;
 				}
 			}
 			else {
+				if(nextParty.totalSeats() == 0) {
 				if(nextParty.Quotient() > party.Quotient()) {
 					party = nextParty;
+				}
+				}
+				else {
+					if(nextParty.totalSeats() == 0 && party.totalSeats() == 0) {
+						if(nextParty.modifiedQuotient() > party.modifiedQuotient()) {
+							party = nextParty;
+						}
+					}
+					else {
+						if(nextParty.Quotient() > party.Quotient()) {
+							party = nextParty;
+							
+						}
+					}
 				}
 			}
 			if(seats > 0) {
