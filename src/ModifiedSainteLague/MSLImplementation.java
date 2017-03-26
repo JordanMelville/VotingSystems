@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class MSLImplementation {
 	
 private ArrayList<MSLParty> partyList = new ArrayList<MSLParty>();
-private int seats = 100;
+private int seats = 627;
 
 
 public void addParty(MSLParty party) {
@@ -44,6 +44,7 @@ public static void main(String[] args) throws IOException{
 	System.out.println("If you wish to exit the system, type(without the quotes) 'exit'.");
 	System.out.println("Once you have typed your load command the results are printed and then we are returned to the main menu.");
 	System.out.println("To see the results if they are printed off the screen, scroll up the console to see where you typed and the results with be below.");
+	System.out.println();
 	while(true) {
 		String command = "";
 		
@@ -110,34 +111,17 @@ public static void main(String[] args) throws IOException{
 
 
 private void delegateSeats() {
-	
 	MSLParty party = partyList.get(0);
 	while(seats > 0) {
-		
 		for(MSLParty nextParty: partyList) {
-			if(party.totalSeats() == 0) {
-				if(nextParty.Quotient() > party.modifiedQuotient()) {
+			if(nextParty.totalSeats() == 0 && party.totalSeats() == 0) {
+				if(nextParty.modifiedQuotient() > party.modifiedQuotient()) {
 					party = nextParty;
 				}
 			}
 			else {
-				if(nextParty.totalSeats() == 0) {
 				if(nextParty.Quotient() > party.Quotient()) {
 					party = nextParty;
-				}
-				}
-				else {
-					if(nextParty.totalSeats() == 0 && party.totalSeats() == 0) {
-						if(nextParty.modifiedQuotient() > party.modifiedQuotient()) {
-							party = nextParty;
-						}
-					}
-					else {
-						if(nextParty.Quotient() > party.Quotient()) {
-							party = nextParty;
-							
-						}
-					}
 				}
 			}
 			if(seats > 0) {
@@ -147,6 +131,8 @@ private void delegateSeats() {
 		}
 		}
 		}
+		
+		
 	
 
 

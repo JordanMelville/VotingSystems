@@ -26,15 +26,18 @@ public static void main(String[] args) throws IOException{
     System.out.println("Welcome to the First Past the Post System!");
     System.out.println("There are four different election results you can choose from.");
     System.out.println("These are represented as files in this system and the names are as follows.");
+    System.out.println();
     System.out.println("FPTPElection1.txt");
     System.out.println("FPTPElection2.txt");
     System.out.println("FPTPElection3.txt");
     System.out.println("FPTPElection4.txt");
+    System.out.println();
     System.out.println("To load the election results for any of these files type the following.");
     System.out.println("Either 'Load1', 'Load2', 'Load3', 'Load4'.");
     System.out.println("Type 'exit' if you wish to terminate the program.");
     System.out.println("Once you have typed your load command the results are printed and then we are returned to the main menu.");
     System.out.println("To see the results if they are printed off the screen, scroll up the console to see where you typed and the results with be below.");
+    System.out.println();
 	
     while(true) {
 		String command = "";
@@ -117,14 +120,11 @@ private void calculateWinnerVotes() {
 		for(FPTPCandidate nextCandidate: candidateList) {
 			System.out.println(nextCandidate.getCandidateName() + "'s Votes: " + nextCandidate.getTotalVotes());
 		}
-		
 		for(FPTPCandidate adjacentCandidate: candidateList) {
 			// iterate through to find the candidate the most amount of votes.
 			if(adjacentCandidate.getTotalVotes() > candidate.getTotalVotes()) {
 				candidate = adjacentCandidate;
 			}
-			
-			
 		}
 		System.out.println();
 		System.out.println("The winner with the most votes is " + candidate.getCandidateName() + ".");

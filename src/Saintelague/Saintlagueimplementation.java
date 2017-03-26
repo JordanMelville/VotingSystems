@@ -107,10 +107,9 @@ public static void main(String[] args) throws IOException{
 
 
 private void delegateSeats() {
-	int seats = 100;
+	int seats = 63;
 	while(seats > 0) {
 		SainteParty party = partyList.get(0);
-		
 		for(SainteParty nextParty: partyList) {
 			if(nextParty.Quotient() > party.Quotient()) {
 				party = nextParty; 

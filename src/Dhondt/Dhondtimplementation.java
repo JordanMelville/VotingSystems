@@ -35,6 +35,7 @@ public static void main(String[] args) throws IOException{
 	System.out.println("Note these text files will be able to be edited to host your own elections.");
 	System.out.println("Read the user manual on how to edit and interpret the data for this system if you don't understand.");
 	System.out.println("If you wish to exit the system, type(without the quotes) 'exit'.");
+	System.out.println();
 	while(true) {
 		String command = "";
 		
@@ -66,7 +67,7 @@ public static void main(String[] args) throws IOException{
 
 
 public void delegateSeats() {
-	int seats = 100;
+	int seats = 63;
 	while (seats > 0) {
 		DhondtParty party = partyList.get(0);
 		for (DhondtParty nextParty : partyList) {
@@ -74,12 +75,9 @@ public void delegateSeats() {
 				party = nextParty;
 			}
 		}
-
 			party.addSeat();
 			seats--;
-			
 		}
-
 	}
 
 
